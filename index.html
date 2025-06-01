@@ -39,10 +39,14 @@
         <script src="data/Mapahistoryczna1940_1.js"></script>
         <script src="data/VMAP2000_2.js"></script>
         <script src="data/Landsat2025_3.js"></script>
+        <script src="data/Obszarynaktrychzawszepynarzeka_4.js"></script>
+        <script src="data/Obszarynaktrychkiedykolwiekpynarzeka_5.js"></script>
+        <script src="data/ProcentpokryciaVMAPLandsat_6.js"></script>
+        <script src="data/ProcentpokryciahistorycznaVMAP_7.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[52.52768974646385,21.335790060751535],[52.53815200542371,21.369504430624325]]);
+        }).fitBounds([[52.478700969818945,21.05951473661158],[52.56205114879581,21.328899295372896]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -107,18 +111,6 @@
         map.addLayer(layer_Ortofotomapa_0);
         function pop_Mapahistoryczna1940_1(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(String(feature.properties['Id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(String(feature.properties['Shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(String(feature.properties['Shape_Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Wsk_kszt'] !== null ? autolinker.link(String(feature.properties['Wsk_kszt']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -155,99 +147,8 @@
             style: style_Mapahistoryczna1940_1_0,
         });
         bounds_group.addLayer(layer_Mapahistoryczna1940_1);
-        map.addLayer(layer_Mapahistoryczna1940_1);
         function pop_VMAP2000_2(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DLUG_BRZEG'] !== null ? autolinker.link(String(feature.properties['DLUG_BRZEG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DLUGOSC'] !== null ? autolinker.link(String(feature.properties['DLUGOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DOKLADNOSC'] !== null ? autolinker.link(String(feature.properties['DOKLADNOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DOSTEPNOSC'] !== null ? autolinker.link(String(feature.properties['DOSTEPNOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['GLEBOKOSC'] !== null ? autolinker.link(String(feature.properties['GLEBOKOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ISTNIENIE'] !== null ? autolinker.link(String(feature.properties['ISTNIENIE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['KAT_HYDRO'] !== null ? autolinker.link(String(feature.properties['KAT_HYDRO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['KAT_PLYWU'] !== null ? autolinker.link(String(feature.properties['KAT_PLYWU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['KAT_POJEMN'] !== null ? autolinker.link(String(feature.properties['KAT_POJEMN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['KAT_POLOZ'] !== null ? autolinker.link(String(feature.properties['KAT_POLOZ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['KAT_WODY'] !== null ? autolinker.link(String(feature.properties['KAT_WODY']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NAJW_WYS'] !== null ? autolinker.link(String(feature.properties['NAJW_WYS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NAZWA'] !== null ? autolinker.link(String(feature.properties['NAZWA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBIEKT'] !== null ? autolinker.link(String(feature.properties['OBIEKT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OPR_UPUST'] !== null ? autolinker.link(String(feature.properties['OPR_UPUST']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OPR_ZBURZ'] !== null ? autolinker.link(String(feature.properties['OPR_ZBURZ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['POCH_HYDRO'] !== null ? autolinker.link(String(feature.properties['POCH_HYDRO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PRED_PRZEP'] !== null ? autolinker.link(String(feature.properties['PRED_PRZEP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SREDNIA_GL'] !== null ? autolinker.link(String(feature.properties['SREDNIA_GL']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['STAT_EKSPL'] !== null ? autolinker.link(String(feature.properties['STAT_EKSPL']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SZEROKOSC'] !== null ? autolinker.link(String(feature.properties['SZEROKOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TAJNOSC'] !== null ? autolinker.link(String(feature.properties['TAJNOSC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TYP_AKWED'] !== null ? autolinker.link(String(feature.properties['TYP_AKWED']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TYP_WYBRZ'] !== null ? autolinker.link(String(feature.properties['TYP_WYBRZ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ZN_ORIENT'] !== null ? autolinker.link(String(feature.properties['ZN_ORIENT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['POWIERZCHN'] !== null ? autolinker.link(String(feature.properties['POWIERZCHN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Pole'] !== null ? autolinker.link(String(feature.properties['Pole']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Obwod'] !== null ? autolinker.link(String(feature.properties['Obwod']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Wsk_kszt'] !== null ? autolinker.link(String(feature.properties['Wsk_kszt']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -284,39 +185,8 @@
             style: style_VMAP2000_2_0,
         });
         bounds_group.addLayer(layer_VMAP2000_2);
-        map.addLayer(layer_VMAP2000_2);
         function pop_Landsat2025_3(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(String(feature.properties['Id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(String(feature.properties['gridcode']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['InPoly_FID'] !== null ? autolinker.link(String(feature.properties['InPoly_FID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Wsk_kszt'] !== null ? autolinker.link(String(feature.properties['Wsk_kszt']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(String(feature.properties['ORIG_FID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(String(feature.properties['Shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['MaxSimpTol'] !== null ? autolinker.link(String(feature.properties['MaxSimpTol']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['MinSimpTol'] !== null ? autolinker.link(String(feature.properties['MinSimpTol']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Le_1'] !== null ? autolinker.link(String(feature.properties['Shape_Le_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(String(feature.properties['Shape_Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -353,8 +223,295 @@
             style: style_Landsat2025_3_0,
         });
         bounds_group.addLayer(layer_Landsat2025_3);
-        map.addLayer(layer_Landsat2025_3);
+        function pop_Obszarynaktrychzawszepynarzeka_4(feature, layer) {
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Obszarynaktrychzawszepynarzeka_4_0() {
+            return {
+                pane: 'pane_Obszarynaktrychzawszepynarzeka_4',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(229,182,54,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Obszarynaktrychzawszepynarzeka_4');
+        map.getPane('pane_Obszarynaktrychzawszepynarzeka_4').style.zIndex = 404;
+        map.getPane('pane_Obszarynaktrychzawszepynarzeka_4').style['mix-blend-mode'] = 'normal';
+        var layer_Obszarynaktrychzawszepynarzeka_4 = new L.geoJson(json_Obszarynaktrychzawszepynarzeka_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Obszarynaktrychzawszepynarzeka_4',
+            layerName: 'layer_Obszarynaktrychzawszepynarzeka_4',
+            pane: 'pane_Obszarynaktrychzawszepynarzeka_4',
+            onEachFeature: pop_Obszarynaktrychzawszepynarzeka_4,
+            style: style_Obszarynaktrychzawszepynarzeka_4_0,
+        });
+        bounds_group.addLayer(layer_Obszarynaktrychzawszepynarzeka_4);
+        function pop_Obszarynaktrychkiedykolwiekpynarzeka_5(feature, layer) {
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Obszarynaktrychkiedykolwiekpynarzeka_5_0() {
+            return {
+                pane: 'pane_Obszarynaktrychkiedykolwiekpynarzeka_5',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(183,72,75,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Obszarynaktrychkiedykolwiekpynarzeka_5');
+        map.getPane('pane_Obszarynaktrychkiedykolwiekpynarzeka_5').style.zIndex = 405;
+        map.getPane('pane_Obszarynaktrychkiedykolwiekpynarzeka_5').style['mix-blend-mode'] = 'normal';
+        var layer_Obszarynaktrychkiedykolwiekpynarzeka_5 = new L.geoJson(json_Obszarynaktrychkiedykolwiekpynarzeka_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Obszarynaktrychkiedykolwiekpynarzeka_5',
+            layerName: 'layer_Obszarynaktrychkiedykolwiekpynarzeka_5',
+            pane: 'pane_Obszarynaktrychkiedykolwiekpynarzeka_5',
+            onEachFeature: pop_Obszarynaktrychkiedykolwiekpynarzeka_5,
+            style: style_Obszarynaktrychkiedykolwiekpynarzeka_5_0,
+        });
+        bounds_group.addLayer(layer_Obszarynaktrychkiedykolwiekpynarzeka_5);
+        function pop_ProcentpokryciaVMAPLandsat_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Procent pokrycia: VMAP - Landsat</th>\
+                        <td class="visible-with-data" id="VMap_Sent">' + (feature.properties['VMap_Sent'] !== null ? autolinker.link(String(feature.properties['VMap_Sent']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ProcentpokryciaVMAPLandsat_6_0(feature) {
+            if (feature.properties['VMap_Sent'] >= -39.658103 && feature.properties['VMap_Sent'] <= 0.000000 ) {
+                return {
+                pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['VMap_Sent'] >= 0.000000 && feature.properties['VMap_Sent'] <= 2.463962 ) {
+                return {
+                pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(200,220,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['VMap_Sent'] >= 2.463962 && feature.properties['VMap_Sent'] <= 8.430857 ) {
+                return {
+                pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(115,178,216,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['VMap_Sent'] >= 8.430857 && feature.properties['VMap_Sent'] <= 17.082862 ) {
+                return {
+                pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(41,121,185,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['VMap_Sent'] >= 17.082862 && feature.properties['VMap_Sent'] <= 84.932008 ) {
+                return {
+                pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_ProcentpokryciaVMAPLandsat_6');
+        map.getPane('pane_ProcentpokryciaVMAPLandsat_6').style.zIndex = 406;
+        map.getPane('pane_ProcentpokryciaVMAPLandsat_6').style['mix-blend-mode'] = 'normal';
+        var layer_ProcentpokryciaVMAPLandsat_6 = new L.geoJson(json_ProcentpokryciaVMAPLandsat_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ProcentpokryciaVMAPLandsat_6',
+            layerName: 'layer_ProcentpokryciaVMAPLandsat_6',
+            pane: 'pane_ProcentpokryciaVMAPLandsat_6',
+            onEachFeature: pop_ProcentpokryciaVMAPLandsat_6,
+            style: style_ProcentpokryciaVMAPLandsat_6_0,
+        });
+        bounds_group.addLayer(layer_ProcentpokryciaVMAPLandsat_6);
+        function pop_ProcentpokryciahistorycznaVMAP_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Procent pokrycia: historyczna - VMAP</th>\
+                        <td class="visible-with-data" id="Topo_vmap">' + (feature.properties['Topo_vmap'] !== null ? autolinker.link(String(feature.properties['Topo_vmap']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ProcentpokryciahistorycznaVMAP_7_0(feature) {
+            if (feature.properties['Topo_vmap'] >= -100.000000 && feature.properties['Topo_vmap'] <= -16.815051 ) {
+                return {
+                pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Topo_vmap'] >= -16.815051 && feature.properties['Topo_vmap'] <= -5.778159 ) {
+                return {
+                pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(200,220,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Topo_vmap'] >= -5.778159 && feature.properties['Topo_vmap'] <= 0.000000 ) {
+                return {
+                pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(115,178,216,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Topo_vmap'] >= 0.000000 && feature.properties['Topo_vmap'] <= 12.665986 ) {
+                return {
+                pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(41,121,185,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Topo_vmap'] >= 12.665986 && feature.properties['Topo_vmap'] <= 81.678486 ) {
+                return {
+                pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+                opacity: 0.5,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_ProcentpokryciahistorycznaVMAP_7');
+        map.getPane('pane_ProcentpokryciahistorycznaVMAP_7').style.zIndex = 407;
+        map.getPane('pane_ProcentpokryciahistorycznaVMAP_7').style['mix-blend-mode'] = 'normal';
+        var layer_ProcentpokryciahistorycznaVMAP_7 = new L.geoJson(json_ProcentpokryciahistorycznaVMAP_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ProcentpokryciahistorycznaVMAP_7',
+            layerName: 'layer_ProcentpokryciahistorycznaVMAP_7',
+            pane: 'pane_ProcentpokryciahistorycznaVMAP_7',
+            onEachFeature: pop_ProcentpokryciahistorycznaVMAP_7,
+            style: style_ProcentpokryciahistorycznaVMAP_7_0,
+        });
+        bounds_group.addLayer(layer_ProcentpokryciahistorycznaVMAP_7);
         var overlaysTree = [
+            {label: 'Procent pokrycia: historyczna - VMAP<br /><table><tr><td style="text-align: center;"><img src="legend/ProcentpokryciahistorycznaVMAP_7_1001680.png" /></td><td>-100 - -16.8</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciahistorycznaVMAP_7_168581.png" /></td><td>-16.8 - -5.8</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciahistorycznaVMAP_7_5802.png" /></td><td>-5.8 - 0</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciahistorycznaVMAP_7_01273.png" /></td><td>0 - 12.7</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciahistorycznaVMAP_7_1278174.png" /></td><td>12.7 - 81.7</td></tr></table>', layer: layer_ProcentpokryciahistorycznaVMAP_7},
+            {label: 'Procent pokrycia: VMAP - Landsat<br /><table><tr><td style="text-align: center;"><img src="legend/ProcentpokryciaVMAPLandsat_6_39700.png" /></td><td>-39.7 - 0</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciaVMAPLandsat_6_0251.png" /></td><td>0 - 2.5</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciaVMAPLandsat_6_25842.png" /></td><td>2.5 - 8.4</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciaVMAPLandsat_6_841713.png" /></td><td>8.4 - 17.1</td></tr><tr><td style="text-align: center;"><img src="legend/ProcentpokryciaVMAPLandsat_6_1718494.png" /></td><td>17.1 - 84.9</td></tr></table>', layer: layer_ProcentpokryciaVMAPLandsat_6},
+            {label: '<img src="legend/Obszarynaktrychkiedykolwiekpynarzeka_5.png" /> Obszary na których kiedykolwiek płynęła rzeka', layer: layer_Obszarynaktrychkiedykolwiekpynarzeka_5},
+            {label: '<img src="legend/Obszarynaktrychzawszepynarzeka_4.png" /> Obszary na których zawsze płynęła rzeka', layer: layer_Obszarynaktrychzawszepynarzeka_4},
             {label: '<img src="legend/Landsat2025_3.png" /> Landsat 2025', layer: layer_Landsat2025_3},
             {label: '<img src="legend/VMAP2000_2.png" /> VMAP 2000', layer: layer_VMAP2000_2},
             {label: '<img src="legend/Mapahistoryczna1940_1.png" /> Mapa historyczna 1940', layer: layer_Mapahistoryczna1940_1},
